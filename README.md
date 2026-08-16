@@ -8,9 +8,11 @@ library.
 Inform 6 is the language, documented in the *Inform Designer's Manual,
 4th edition* (DM4) by Graham Nelson, and shipped with the Inform 6
 Standard Library. [PunyInform](https://github.com/johanberntsson/PunyInform),
-by Fredrik Ramsberg and Johan Berntsson, is a minimal alternative to that
-library: based on it, deliberately smaller and faster, and aimed at 8-bit
-machines such as the Commodore 64.
+by Fredrik Ramsberg and Johan Berntsson, is an independent library for the
+same language and the same compiler: its own stdlib and its own parser,
+written from scratch to be small and fast, and kept deliberately familiar
+to Inform 6 authors rather than derived from the Standard Library. It is
+aimed at 8-bit machines such as the Commodore 64.
 
 This extension aims to cover the language as thoroughly as DM4 documents
 it, highlights the Standard Library's vocabulary, and adds first-class
