@@ -87,24 +87,41 @@ your global Zed settings if you want it everywhere.
 Install **Inform 6 x PunyInform** from Zed's extension registry
 (`zed: extensions`).
 
+## Verification
+
+The grammar produces zero ERROR and zero MISSING nodes across the entire
+PunyInform repository: 85 files, 73 `.inf` and 12 `.h`, comprising the
+library (`puny.h`, `parser.h`, `grammar.h`, `messages.h`, `globals.h`,
+`scope.h` and every `ext_*.h`), the how-to examples, the test suite and
+the shipped games. That count is the grammar's done-test, not a summary
+of one: a highlighter built on a parser that errors will drop colour
+wherever it errors.
+
+The three query files are checked with `tree-sitter query` against the
+largest real sources in that corpus.
+
 ## Development
 
 The Tree-sitter grammar lives at
 [ByteProject/tree-sitter-i6puny](https://github.com/ByteProject/tree-sitter-i6puny)
-and is pinned by commit in `extension.toml`. It produces zero error nodes
-across the entire PunyInform repository, 85 files, which is its done-test.
+and is pinned by revision in `extension.toml`.
 
-To work on the extension locally, clone this repository, run
+To work on the extension, clone this repository, run
 `zed: install dev extension` and select the clone. Zed fetches the grammar
-from the pinned revision and compiles it. After changing a query, run
-`zed: rebuild dev extension`.
+at the pinned revision and compiles it with wasi-sdk. After editing a
+query, `zed: rebuild dev extension` picks it up.
 
-Changing the GRAMMAR needs a commit, because Zed resolves the grammar
-through git and there is no local-path escape hatch: `extension.toml` must
-name a repository and a revision. Either commit and push the grammar and
-bump the `rev` here, or use the `zed_dev.py` helper, which commits the
-grammar to a throwaway repository under `build/` and writes a dev copy of
-this extension pointing at it.
+Changing the GRAMMAR needs a pushed commit. Zed resolves a grammar only
+through git: `extension_builder.rs` checks out `repository` at `rev`, and
+the optional `path` field names a subdirectory inside that checkout, not a
+local directory. There is no local-path escape hatch. So the loop is:
+commit and push the grammar, then bump `rev` here.
+
+## Not covered
+
+The Vorple JavaScript embedding that Natrium's VS Code extension
+supports, and `.i6t` Inform 7 template files, which are a different
+surface.
 
 ## Licence
 
