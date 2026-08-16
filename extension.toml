@@ -1,0 +1,22 @@
+# extension.toml
+# Inform 6 x PunyInform, syntax highlighting for the Zed editor.
+# Copyright (c) 2026, Stefan Vogt.
+# https://github.com/ByteProject/zed-i6puny
+#
+# The grammar reference must be a git repository plus a revision, even for a
+# locally installed dev extension. The rev below pins a real commit in
+# ByteProject/tree-sitter-i6puny, so Zed fetches the grammar directly and no
+# dev bundle is needed. tools/zed_dev.py remains available for iterating on the
+# grammar before a commit is pushed.
+
+id = "i6puny"
+name = "Inform 6 x PunyInform"
+version = "1.0.0"
+schema_version = 1
+authors = ["Stefan Vogt <stefan@8-bit.info>"]
+description = "Syntax highlighting for Inform 6, the classic interactive-fiction programming language, with first-class support for the PunyInform library."
+repository = "https://github.com/ByteProject/zed-i6puny"
+
+[grammars.i6puny]
+repository = "https://github.com/ByteProject/tree-sitter-i6puny"
+rev = "b198d176980bb8eceefe84db53bfab0d9a1671b7"

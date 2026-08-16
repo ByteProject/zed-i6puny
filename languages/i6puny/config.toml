@@ -1,0 +1,35 @@
+name = "Inform 6 x PunyInform"
+grammar = "i6puny"
+
+# Only .inf is claimed by suffix. Inform 6 headers use .h, which the built-in C
+# language already claims, and in Zed a first_line_pattern CANNOT filter a
+# suffix claim: content matching is only consulted when no language matched the
+# path at all (crates/language/src/available_languages.rs, find_for_file).
+# Claiming "h" here would therefore fight C on a registration-order tiebreak and
+# take over every C header when it won.
+#
+# The supported way to get .h is a per-project opt-in, which lands in the
+# UserConfigured precedence tier and deterministically beats a built-in claim.
+# In your game's .zed/settings.json:
+#
+#   { "file_types": { "Inform 6 x PunyInform": ["*.h"] } }
+#
+# See the README.
+path_suffixes = ["inf"]
+
+# A fallback for sources that carry no extension Zed knows: a leading !
+# comment, a System_file line, or a line-leading directive. This never fires for
+# .h or .c, because those already match a language by suffix.
+first_line_pattern = "^\\s*(!|System_file\\b|Constant\\b|Include\\b|Object\\b|Class\\b|Global\\b|Array\\b|Attribute\\b|Property\\b|Replace\\b|Ifn?def\\b)"
+
+line_comments = ["! "]
+tab_size = 4
+hard_tabs = true
+
+brackets = [
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "(", end = ")", close = true, newline = false },
+  { start = "\"", end = "\"", close = true, newline = false, not_in = ["comment", "string"] },
+  { start = "'", end = "'", close = true, newline = false, not_in = ["comment", "string"] },
+]
