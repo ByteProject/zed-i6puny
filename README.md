@@ -5,10 +5,17 @@ classic interactive-fiction programming language, with first-class
 support for the [PunyInform](https://github.com/johanberntsson/PunyInform)
 library.
 
-Inform 6 is the language. PunyInform is a small, fast standard library
-for it, aimed at 8-bit machines such as the Commodore 64. This extension
-knows both: the language itself, the DM4 standard library vocabulary, and
-PunyInform's own author-facing surface down to its shipped extensions.
+Inform 6 is the language, documented in the *Inform Designer's Manual,
+4th edition* (DM4) by Graham Nelson, and shipped with the Inform 6
+Standard Library. [PunyInform](https://github.com/johanberntsson/PunyInform),
+by Fredrik Ramsberg and Johan Berntsson, is a minimal alternative to that
+library: based on it, deliberately smaller and faster, and aimed at 8-bit
+machines such as the Commodore 64.
+
+This extension aims to cover the language as thoroughly as DM4 documents
+it, highlights the Standard Library's vocabulary, and adds first-class
+support for PunyInform's own author-facing surface, down to its shipped
+extensions.
 
 ## What it highlights
 
@@ -32,13 +39,13 @@ is the standard abbreviation for a verb and is a dictionary word.
 recognised, because the print statement is parsed structurally rather
 than matched against a word list. A bare `(a)` in `if (a)` is left alone.
 
-**Two libraries.** The DM4 standard library and PunyInform's vocabulary:
-attributes, properties, library routines, globals, actions and library
-constants. Shared concepts share a colour, because an attribute is an
-attribute whichever library defines it. PunyInform's *configuration*
-constants get their own colour, since the `OPTIONAL_*`, `MSG_*` and
-`SKIP_MSG_*` families and their friends are compile-time switches you set
-before `Include "puny.h"`, not values you read.
+**Two libraries.** The Inform 6 Standard Library and PunyInform's
+vocabulary: attributes, properties, library routines, globals, actions
+and library constants. Shared concepts share a colour, because an
+attribute is an attribute whichever library defines it. PunyInform's
+*configuration* constants get their own colour, since the `OPTIONAL_*`,
+`MSG_*` and `SKIP_MSG_*` families and their friends are compile-time
+switches you set before `Include "puny.h"`, not values you read.
 
 **The shipped extensions.** `ext_cheap_scenery` (the `cheap_scenery`
 property, the `CS_*` constants and the `SceneryReply` hook),

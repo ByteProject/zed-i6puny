@@ -17,8 +17,9 @@
 ;      against 7 dictionary uses), then back to dictionary word inside a Verb
 ;      or grammar line, where position settles it.
 ;
-; The vocabulary is two libraries at once. Shared concepts share a colour: an
-; attribute is an attribute whichever library defines it. The one deliberate
+; The vocabulary is two libraries at once: the Inform 6 Standard Library and
+; PunyInform. Shared concepts share a colour, since an attribute is an
+; attribute whichever library defines it. The one deliberate
 ; split is PunyInform's CONFIGURATION constants, the compile-time switches you
 ; set before Include "puny.h", which get @constant.builtin because they are a
 ; different kind of thing from a value you read.
@@ -49,7 +50,7 @@
 
 ((identifier) @constant.builtin (#any-of? @constant.builtin "nothing" "NULL"))
 
-; ---- attributes (DM4 and PunyInform) --------------------------------------
+; ---- attributes (Standard Library and PunyInform) -------------------------
 
 ((identifier) @attribute
   (#any-of? @attribute
@@ -59,7 +60,7 @@
     "reactive" "scenery" "scored" "static" "supporter" "switchable"
     "talkable" "transparent" "visited" "workflag" "worn"))
 
-; ---- properties (DM4 and PunyInform, plus the shipped extensions) ---------
+; ---- properties (Standard Library, PunyInform, shipped extensions) --------
 
 ((identifier) @property
   (#any-of? @property
@@ -75,7 +76,7 @@
     ; ext_cheap_scenery and ext_talk_menu
     "cheap_scenery" "talk_array"))
 
-; ---- library routines (DM4 and PunyInform) --------------------------------
+; ---- library routines (Standard Library and PunyInform) -------------------
 
 ((identifier) @function
   (#any-of? @function
@@ -133,7 +134,7 @@
     ; ext_cheap_scenery
     "CSHasAdjective" "CSHasNoun" "CSHasWord" "CSPerformAction"))
 
-; ---- library variables and objects (DM4 and PunyInform) -------------------
+; ---- library variables and objects (Standard Library, PunyInform) ---------
 
 ((identifier) @variable.special
   (#any-of? @variable.special

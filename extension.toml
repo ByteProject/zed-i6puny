@@ -19,4 +19,4 @@ repository = "https://github.com/ByteProject/zed-i6puny"
 
 [grammars.i6puny]
 repository = "https://github.com/ByteProject/tree-sitter-i6puny"
-rev = "b198d176980bb8eceefe84db53bfab0d9a1671b7"
+rev = "0faa25cf412dd4aac9a918c005fbb8a9efbdf1c0"
